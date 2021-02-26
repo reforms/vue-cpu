@@ -1,0 +1,28 @@
+# eclipse
+.project
+.classpath
+.settings
+target/
+
+# node
+node/
+node_modules/
+
+# idea
+.idea
+*.iml
+*.iws
+*.ipr
+
+# java
+*.class
+
+#maven
+.flattened-pom*.xml
+
+#VSC
+.vscode/
+
+#result
+dist/
+

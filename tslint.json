@@ -1,0 +1,50 @@
+{
+    "extends": "tslint:recommended",
+    "rules": {
+        "member-access": [true, "no-public"],
+
+        "member-ordering": {
+            "options": {
+                "order": "fields-first"
+            }
+        },
+
+        "object-literal-sort-keys": false,
+
+        "max-line-length": {
+            "options": [160]
+        },
+
+        "quotemark": [true, "double"],
+
+        "max-classes-per-file": false,
+
+        "no-inferrable-types": true,
+
+        "arrow-parens": false,
+
+        "only-arrow-functions": [true, "allow-declarations", "allow-named-functions"],
+
+        "no-angle-bracket-type-assertion": false,
+
+        "no-empty": false,
+
+        "trailing-comma": false,
+
+        "object-literal-shorthand": false,
+
+        "interface-over-type-literal": false,
+
+        "eofline": false,
+
+        "curly": true,
+
+        "no-bitwise": false,
+
+        "file-name-casing": [true, {
+            ".ts": "camel-case"
+        }],
+
+        "no-parameter-reassignment": true
+    }
+  }

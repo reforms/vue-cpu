@@ -1,0 +1,70 @@
+{
+    "name": "vue-class-cpu",
+    "version": "1.0.0",
+    "description": "Vue class and template processor (vue-cpu) with HOC patterns",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/reforms/vue-cpu.git"
+    },
+    "homepage": "https://github.com/reforms/vue-cpu",
+    "bugs": {
+        "url": "https://github.com/reforms/vue-cpu/issues"
+    },
+    "files": [
+        "dist",
+        "src"
+    ],
+    "main": "dist/commonjs/index.js",
+    "jsnext:main": "dist/es/index.js",
+    "module": "dist/es/vue-cpu.js",
+    "types": "dist/types/vue-cpu.d.ts",
+    "scripts": {
+        "clean:dist": "rimraf dist",
+        "clean:pack": "rimraf ts-enum-util-*.tgz",
+        "compile": "tsc --project tsconfig.json --noEmit --pretty --noErrorTruncation",
+        "lint": "tslint --config tslint.json --project tsconfig.json",
+        "lint:fix": "npm run lint -- --fix",
+        "build:types": "tsc --project tsconfig.json --pretty --noErrorTruncation --emitDeclarationOnly true --declarationMap true --outDir dist/types",
+        "build:commonjs": "tsc --project tsconfig.json --pretty --noErrorTruncation --declaration false --outDir dist/commonjs",
+        "build:es": "tsc --project tsconfig.json --pretty --noErrorTruncation --declaration false -m es6 --outDir dist/es",
+        "build": "npm run clean:dist && run-p build:types build:es build:commonjs && npm run test",
+        "pack": "run-p clean:pack build && npm pack",
+        "test": "jest -c jest.config.js --verbose",
+        "dtslint": "run-s clean:dist build:types dtslint:v2_8_plus"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "RefOrms",
+        "email": "reforms2017@gmail.com"
+    },
+    "devDependencies": {
+        "@types/jest": "^24.0.21",
+        "@types/node": "10.3.0",
+        "dtslint": "0.3.0",
+        "npm-run-all": "4.1.3",
+        "prettier": "1.13.4",
+        "jest": "^24.9.0",
+        "rimraf": "2.6.2",
+        "tslint": "5.10.0",
+        "ts-jest": "^24.1.0",
+        "tslint-config-prettier": "1.13.0",
+        "typescript": "3.7.5",
+        "vue": "^2.6.11",
+        "vue-class-component": "^7.2.6",
+        "vue-property-decorator": "^9.1.2"
+    },
+    "peerDependencies": {
+        "typescript": ">= 3.7.5"
+    },
+    "keywords": [
+        "vue",
+        "template",
+        "modifier",
+        "parser",
+        "hoc",
+        "processor",
+        "typescript",
+        "cpu",
+        "component"
+    ]
+}
