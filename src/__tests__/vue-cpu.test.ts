@@ -1,6 +1,6 @@
 
 import {getComponent, getTemplate} from "./components";
-import {AddBoldClassToSpanCpu, ReadonlyCpu, RemoveHandlersCpu} from "./instructions";
+import {AddBoldClassToSpanCpu, ReadonlyCpu, RemoveHandlersCpu, DisabledPanelCpu} from "./instructions";
 
 
 describe("VueCpu", () => {
@@ -91,4 +91,43 @@ describe("VueCpu", () => {
         const nTemplateToBe = templateToBe.replace(/ {2,}/g, "");
         expect(nTemplateActual).toBe(nTemplateToBe);
     }
+
+    test("Disabled-Panel-Cpu", () => {
+
+        // input
+        const EditUserProfilePanel = getComponent(`
+            <div>
+                <span>User profile</span>
+                <div class="row">
+                    <span class="td_1">First name</span>
+                    <input class="td_2" v-model="userProfile.firstName">
+                </div>
+                <div class="row">
+                    <span class="td_1">Last name</span>
+                    <input class="td_2" v-model="userProfile.lastName">
+                </div>
+                <button @click="onSave">Save</button>
+            </div>
+        `);
+
+        // toBe
+        const templateToBe = `
+            <div>
+                <span>User profile</span>
+                <div class="row">
+                    <span class="td_1">First name</span>
+                    <input readonly class="td_2" :value="userProfile.firstName">
+                </div>
+                <div class="row">
+                    <span class="td_1">Last name</span>
+                    <input readonly class="td_2" :value="userProfile.lastName">
+                </div>
+                <button disabled>Save</button>
+            </div>
+        `;
+
+        const ViewUserProfilePanel = DisabledPanelCpu.process(EditUserProfilePanel);
+        const templateActual = getTemplate(ViewUserProfilePanel);
+        compareTemplates(templateActual, templateToBe);
+    });
 });
