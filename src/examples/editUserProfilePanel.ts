@@ -1,4 +1,4 @@
-import {Vue, Component, Prop} from "../ts/lib";
+import {Component, Prop, Vue} from "../ts/vue-cpu";
 
 @Component({
     template: `

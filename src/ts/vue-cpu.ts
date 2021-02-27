@@ -1,4 +1,9 @@
-import {AsyncComponent, Component, ComponentOptions, Vue, VueClass} from "./lib";
+import {AsyncComponent, ComponentOptions} from "vue";
+import {VueClass} from "vue-class-component/lib/declarations";
+import {Component, Prop, Vue} from 'vue-property-decorator';
+
+/** Reexport base lib imports */
+export {AsyncComponent, ComponentOptions, Vue, Component, VueClass, Prop};
 
 /**
  * Vue class and template processor, shortcut and just for fun - cpu.

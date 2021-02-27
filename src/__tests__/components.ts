@@ -1,4 +1,4 @@
-import {Component, ComponentOptions, Prop, Vue, VueClass} from "../ts/lib";
+import {Component, ComponentOptions, Prop, Vue, VueClass} from "../ts/vue-cpu";
 
 @Component({
     // language=Vue

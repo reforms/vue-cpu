@@ -20,7 +20,7 @@
     "types": "dist/types/vue-cpu.d.ts",
     "scripts": {
         "clean:dist": "rimraf dist",
-        "clean:pack": "rimraf ts-enum-util-*.tgz",
+        "clean:pack": "rimraf vue-cpu*.tgz",
         "compile": "tsc --project tsconfig.json --noEmit --pretty --noErrorTruncation",
         "lint": "tslint --config tslint.json --project tsconfig.json",
         "lint:fix": "npm run lint -- --fix",

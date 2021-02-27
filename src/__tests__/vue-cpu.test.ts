@@ -1,6 +1,6 @@
 
 import {getComponent, getTemplate} from "./components";
-import {AddBoldClassToSpanCpu, ReadonlyCpu, RemoveHandlersCpu, DisabledPanelCpu} from "./instructions";
+import {AddBoldClassToSpanCpu, DisabledPanelCpu, ReadonlyCpu, RemoveHandlersCpu} from "./instructions";
 
 
 describe("VueCpu", () => {
