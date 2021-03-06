@@ -1,6 +1,6 @@
 {
     "name": "vue-cpu",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Vue class and template processor (vue-cpu) with HOC patterns",
     "repository": {
         "type": "git",

@@ -144,6 +144,28 @@ export class VueCpu {
     }
 }
 
+/**
+ * Decorator, which allow to use 'super' keyword inside overloaded method to get access to inherited method of parent class
+ * Algorithm that lookup point of access to inherited method of parent class:
+ *  1) Lookup method inside `extendOptions` of parent class
+ *     Method exists inside `extendOptions` if and only if parent overloaded same method of grandparent
+ *  2) Lookup method inside `superOptions` of parent class
+ *     Method exists inside `superOptions` if and only if parent dont declare same method of grandparent
+ * If lookup of method to be success, this decorator add it to prototype, after that, current method to be accessed with 'super' keyword.
+ * If using @Inherited decorator remember one rule only: use decorator only you need 'super' method functionality
+ * @param target target class type
+ * @param propertyKey method name that to be marked with @Inherited decorator
+ * @param descriptor method descriptor
+ * TODO: Use Object API instead of "__proto__" keyword!
+ */
+export function Inherited(target: any, propertyKey: string) {
+    if (target.__proto__ && target.__proto__?.constructor?.extendOptions?.methods?.[propertyKey] && !target.__proto__.hasOwnProperty(propertyKey)) {
+        target.__proto__[propertyKey] = target.__proto__.constructor.extendOptions.methods[propertyKey];
+    } else if (target.__proto__ && target.__proto__?.constructor?.superOptions?.methods?.[propertyKey] && !target.__proto__.hasOwnProperty(propertyKey)) {
+        target.__proto__[propertyKey] = target.__proto__.constructor.superOptions.methods[propertyKey];
+    }
+}
+
 /** Component Map Type */
 type ComponentMap = {[key: string]: VueClass<Vue> | AsyncComponent};
 

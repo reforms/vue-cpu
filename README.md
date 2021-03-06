@@ -1,6 +1,6 @@
 # vue-cpu
 
-Vue class and html-template processor (vue-cpu) with HOC patterns. Tools use for creating new vue-class component based on another vue-class component. Get useful and simple api for modification html-template of component: easy add or remove attributes of html-template, overwrite hooks and so on.
+Vue class and html-template processor (vue-cpu) with HOC patterns. Tools use for creating new vue-class component based on another vue-class component. Get useful and simple api for modification html-template of component: easy add or remove attributes of html-template, overwrite hooks and so on. Give useful @Inherited decorator, which allow to use 'super' keyword inside overloaded method to get access to inherited method of parent class
 
 # Installation
 npm i vue-cpu
@@ -130,4 +130,38 @@ class DisabledPanelInstruction implements VueCpuInstruction {
 
 /** Make new cpu class with our needs */
 export const DisabledPanelCpu = VueCpu.makeCpu(new DisabledPanelInstruction());
+```
+
+# `@`Inherited Decorator Examples
+Decorator, which allow to use 'super' keyword inside overloaded method to get access to inherited method of parent class. If using @Inherited decorator remember one rule only: use decorator only you need 'super' method functionality
+``` typescript
+@Component({
+    template: `<button class="app-button"><slot></slot></button>`
+})
+export class Button extends Vue {
+
+    getText(): string {
+        return "Button"
+    }
+}
+
+@Component
+export class MainButton extends Button {
+
+    /** Attention: Now no error when use `super` keyword. To be "MainButton" */
+    @Inherited
+    getText(): string {
+        return "Main" + super.getText();
+    }
+}
+
+@Component
+export class TopButton extends MainButton {
+
+    /** Attention: Now no error when use `super` keyword. To be "TopMainButton" */
+    @Inherited
+    getText(): string {
+        return "Top" + super.getText();
+    }
+}
 ```
