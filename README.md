@@ -1,6 +1,6 @@
 # vue-cpu
 
-Vue class and html-template processor (vue-cpu) with HOC patterns. Tools use for creating new vue-class component based on another vue-class component. Get useful and simple api for modification html-template of component: easy add or remove attributes of html-template, overwrite hooks and so on. Give useful @Inherited decorator, which allow to use 'super' keyword inside overloaded method to get access to inherited method of parent class
+Vue class and html-template processor (vue-cpu) with HOC patterns. Tools use for creating new vue-class component based on another vue-class component. Get useful and simple api for modification html-template of component: easy add or remove attributes of html-template, overwrite hooks and so on. Get useful @Inherited decorator, which allow to use 'super' keyword inside overloaded method to get access to inherited method of parent class
 
 # Installation
 npm i vue-cpu
