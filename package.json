@@ -1,6 +1,6 @@
 {
     "name": "vue-cpu",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "description": "Vue class and template processor (vue-cpu) with HOC patterns",
     "repository": {
         "type": "git",
@@ -27,7 +27,7 @@
         "build:types": "tsc --project tsconfig.json --pretty --noErrorTruncation --emitDeclarationOnly true --declarationMap true --outDir dist/types",
         "build:commonjs": "tsc --project tsconfig.json --pretty --noErrorTruncation --declaration false --outDir dist/commonjs",
         "build:es": "tsc --project tsconfig.json --pretty --noErrorTruncation --declaration false -m es6 --outDir dist/es",
-        "build": "npm run clean:dist && run-p build:types build:es build:commonjs && npm run test",
+        "build": "npm run clean:dist && run-s lint && run-p build:types build:es build:commonjs && npm run test",
         "pack": "run-p clean:pack build && npm pack",
         "test": "jest -c jest.config.js --verbose",
         "dtslint": "run-s clean:dist build:types dtslint:v2_8_plus"
@@ -48,7 +48,7 @@
         "tslint": "5.10.0",
         "ts-jest": "^24.1.0",
         "tslint-config-prettier": "1.13.0",
-        "typescript": "3.7.5",
+        "typescript": "3.9.2",
         "vue": "^2.6.11",
         "vue-class-component": "^7.2.6",
         "vue-property-decorator": "^9.1.2"

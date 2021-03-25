@@ -1,9 +1,5 @@
-import {AsyncComponent, ComponentOptions} from "vue";
-import {VueClass} from "vue-class-component/lib/declarations";
-import {Component, Prop, Vue} from 'vue-property-decorator';
-
-/** Reexport base lib imports */
-export {AsyncComponent, ComponentOptions, Vue, Component, VueClass, Prop};
+import type {AsyncComponent, ComponentOptions} from "vue";
+import {Component, Vue} from "vue-property-decorator";
 
 /**
  * Vue class and template processor, shortcut and just for fun - cpu.
@@ -32,7 +28,6 @@ export class VueCpu {
      * @param instruction instruction that be applying to target component
      */
     static makeCpu(instruction: VueCpuInstruction): typeof VueCpu & {process<T extends Vue>(componentClass: VueClass<T>): VueClass<T>} {
-
 
         /** Extends VueCpu and add new static "process" method */
         class NewFeatureCpu extends VueCpu {
@@ -257,7 +252,7 @@ class VueTemplateScanner {
                 if (attr === null) {
                     const attrMap: TextPart["attrMap"] = {};
                     attrs.forEach(newAttrs => {
-                        attrMap[newAttrs.key] = {key: newAttrs.key, value: newAttrs.value}
+                        attrMap[newAttrs.key] = {key: newAttrs.key, value: newAttrs.value};
                     });
                     // replace tag needs
                     const changedTag = modifier({tag: tagInfo.tagName, attrMap, type: "tag"}); // open tag
@@ -425,7 +420,7 @@ export type VueCpuInstruction = {
      * @return new class based on `origClass` or null, if modification don't need
      */
     modifyComponent?(origClass: VueClass<Vue>): VueClass<Vue>;
-}
+};
 
 /**
  * Text Part Holder Type. Contains tag-name, attributes info and `type` about text part: tag or attr to be processed
@@ -440,3 +435,8 @@ export type TextPart = {
     attrMap: {[key: string]: Attribute}
     readonly type: "attr"
 };
+
+/** Vue Class. See "vue-class-component/lib/declarations" */
+type VueClass<V> = {
+    new (...args: any[]): V & Vue;
+} & typeof Vue;

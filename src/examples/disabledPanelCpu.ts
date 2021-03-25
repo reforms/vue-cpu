@@ -1,4 +1,4 @@
-import {TextPart, VueClass, VueCpu, VueCpuInstruction} from "../ts/vue-cpu";
+import {TextPart, VueClass, VueCpu, VueCpuInstruction} from "./global";
 
 /** Instruction that transform html-template and gets new html-template for disabled state */
 class DisabledPanelInstruction implements VueCpuInstruction {

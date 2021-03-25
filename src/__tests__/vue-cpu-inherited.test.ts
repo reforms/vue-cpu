@@ -1,5 +1,5 @@
 
-import {Component, Inherited, Vue} from "../ts/vue-cpu";
+import {Component, Inherited, Vue} from "./global";
 
 
 describe("VueCpuInherited", () => {

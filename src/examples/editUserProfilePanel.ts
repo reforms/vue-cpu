@@ -1,4 +1,4 @@
-import {Component, Prop, Vue} from "../ts/vue-cpu";
+import {Component, Prop, Vue} from "./global";
 
 @Component({
     template: `

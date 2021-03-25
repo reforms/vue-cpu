@@ -1,4 +1,4 @@
-import {TextPart, Vue, VueClass, VueCpu, VueCpuInstruction} from "../ts/vue-cpu";
+import {TextPart, Vue, VueClass, VueCpu, VueCpuInstruction} from "./global";
 
 class ReadonlyAddInstruction implements VueCpuInstruction {
 

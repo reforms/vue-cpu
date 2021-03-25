@@ -1,6 +1,6 @@
 
-import {Attribute, TextPart, VueClass, VueCpu, VueCpuInstruction} from "../ts/vue-cpu";
 import {getComponent} from "./components";
+import {Attribute, TextPart, VueClass, VueCpu, VueCpuInstruction} from "./global";
 
 describe("VueCpuParseTemplate", () => {
 
